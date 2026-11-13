@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="915" viewBox="0 0 1400 915" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f8f86"/>
+    </marker>
+    <style>
+      .box{fill:#ffffff;stroke:#cfd6da;stroke-width:1.5}
+      .h{font-size:16px;font-weight:700;fill:#1d2327}
+      .h2{font-size:14px;font-weight:700;fill:#1d2327}
+      .t{font-size:12.5px;fill:#33404a}
+      .s{font-size:11.5px;fill:#33404a}
+      .d{font-size:12px;fill:#6b7880}
+      .m{font-family:ui-monospace,Menlo,Consolas,monospace}
+      .acc{fill:#2f8f86}
+      .line{stroke:#2f8f86;stroke-width:2;fill:none}
+      .chip{fill:#e7f2f0;stroke:#2f8f86;stroke-width:1}
+      .chipt{font-size:12.5px;fill:#1f5f59;font-weight:600}
+    </style>
+  </defs>
+
+  <rect width="1400" height="915" fill="#f7f6f2"/>
+
+  <text x="40" y="48" font-size="26" font-weight="800" fill="#1d2327">NESL Go2 Lab Console: architecture</text>
+  <text x="40" y="76" class="d" font-size="14">Keyboard driving in the browser &#8594; dashboard and driver in one Docker container &#8594; Unitree Go2 over the lab Wi-Fi</text>
+
+  <!-- Browser -->
+  <rect x="40" y="110" width="270" height="625" rx="10" class="box"/>
+  <text x="60" y="140" class="h">Browser</text>
+  <text x="60" y="160" class="d m">http://localhost:8080</text>
+
+  <rect x="60" y="178" width="230" height="62" rx="7" fill="#e7f2f0" stroke="#2f8f86"/>
+  <text x="74" y="202" class="h2">Drive pad + keyboard</text>
+  <text x="74" y="224" class="t m">W/S  A/D  Q/E   space = stop</text>
+  <rect x="60" y="250" width="230" height="40" rx="7" class="box"/>
+  <text x="74" y="275" class="t">Live camera</text>
+  <rect x="60" y="300" width="230" height="40" rx="7" class="box"/>
+  <text x="74" y="325" class="t">Lidar top view and lab map</text>
+  <rect x="60" y="350" width="230" height="40" rx="7" class="box"/>
+  <text x="74" y="375" class="t">Places, recording, IMU, joints</text>
+
+  <text x="60" y="425" class="h2">Talks to the dashboard</text>
+  <text x="60" y="450" class="s m">POST /cmd       drive, stop, stand</text>
+  <text x="60" y="472" class="s m">POST /map       mapping buttons</text>
+  <text x="60" y="494" class="s m">POST /places    save a spot</text>
+  <text x="60" y="516" class="s m">GET  /events    live state (SSE)</text>
+  <text x="60" y="538" class="s m">GET  /camera.jpg  frames</text>
+  <text x="60" y="560" class="s m">GET  /map.png   map image</text>
+
+  <text x="60" y="605" class="d">Plain HTML, JavaScript, and Canvas,</text>
+  <text x="60" y="623" class="d">served by go2_dashboard.py.</text>
+  <text x="60" y="655" class="d">Terminal option instead of the page:</text>
+  <text x="60" y="673" class="d m">go2_keys.py</text>
+
+  <!-- Browser -> dashboard -->
+  <line x1="313" y1="265" x2="366" y2="265" class="line" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <text x="340" y="254" text-anchor="middle" class="s acc" font-weight="700">HTTP</text>
+  <text x="340" y="284" text-anchor="middle" class="s acc">:8080</text>
+
+  <!-- Container -->
+  <rect x="370" y="110" width="700" height="625" rx="10" fill="#eef4f3" stroke="#2f8f86" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="390" y="140" class="h">Docker container  <tspan class="m" font-weight="400">go2:dev</tspan></text>
+  <text x="650" y="140" class="d">Ubuntu 22.04 &#183; ROS 2 Humble &#183; --net=host</text>
+
+  <!-- Dashboard -->
+  <rect x="395" y="158" width="360" height="252" rx="8" class="box"/>
+  <text x="412" y="184" class="h2 m">go2_dashboard.py</text>
+  <text x="412" y="203" class="d">HTTP server and ROS node in one process</text>
+  <text x="412" y="232" class="t">&#8226; Serves the page and API on port 8080</text>
+  <text x="412" y="254" class="t">&#8226; Drive only from localhost + 172.17.0.0/18</text>
+  <text x="412" y="276" class="t">&#8226; One driver at a time, 0.3 s dead-man stop</text>
+  <text x="412" y="298" class="t">&#8226; Obstacle avoidance on by default</text>
+  <text x="412" y="330" class="s"><tspan font-weight="700">Publishes</tspan>  <tspan class="m">cmd_vel_out  webrtc_req</tspan></text>
+  <text x="412" y="356" class="s"><tspan font-weight="700">Subscribes</tspan> <tspan class="m">/imu /odom /go2_states</tspan></text>
+  <text x="412" y="376" class="s m">  /joint_states /point_cloud2</text>
+  <text x="412" y="396" class="s m">  /camera/image_raw</text>
+
+  <!-- helpers -->
+  <rect x="775" y="158" width="270" height="76" rx="8" class="box"/>
+  <text x="790" y="182" class="h2 m">go2_mapper.py</text>
+  <text x="790" y="203" class="s">Lidar clouds &#8594; 5 cm grid map</text>
+  <text x="790" y="221" class="s">Lines each session up with the saved map</text>
+
+  <rect x="775" y="246" width="270" height="76" rx="8" class="box"/>
+  <text x="790" y="270" class="h2 m">go2_trail.py</text>
+  <text x="790" y="291" class="s">Camera frames with map poses</text>
+  <text x="790" y="309" class="s">Pictures for saved places</text>
+
+  <rect x="775" y="334" width="270" height="76" rx="8" class="box"/>
+  <text x="790" y="358" class="h2">Recorder</text>
+  <text x="790" y="379" class="s m">ros2 bag record</text>
+  <text x="790" y="397" class="s">camera, lidar, pose &#8594; /recordings</text>
+
+  <line x1="757" y1="196" x2="773" y2="196" class="line"/>
+  <line x1="757" y1="284" x2="773" y2="284" class="line"/>
+  <line x1="757" y1="372" x2="773" y2="372" class="line"/>
+
+  <!-- ROS bus -->
+  <line x1="575" y1="412" x2="575" y2="428" class="line" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <rect x="395" y="430" width="650" height="44" rx="8" fill="#2f8f86"/>
+  <text x="720" y="457" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">ROS 2 topics   &#183;   ROS_DOMAIN_ID = 78</text>
+  <line x1="720" y1="476" x2="720" y2="493" class="line" marker-end="url(#arr)" marker-start="url(#arr)"/>
+
+  <!-- Driver -->
+  <rect x="395" y="495" width="650" height="222" rx="8" class="box"/>
+  <text x="412" y="520" class="h2"><tspan class="m">go2_robot_sdk</tspan>  &#183;  WebRTC driver (<tspan class="m">go2_driver_node</tspan>)</text>
+  <text x="412" y="539" class="d">Also launched: lidar_processor, robot_state_publisher, pointcloud_to_laserscan</text>
+
+  <rect x="410" y="552" width="148" height="128" rx="7" fill="#f4f7f8" stroke="#cfd6da"/>
+  <text x="422" y="574" class="h2">presentation</text>
+  <text x="422" y="597" class="s m">go2_driver_node</text>
+  <text x="422" y="615" class="s">ROS publishers</text>
+  <text x="422" y="633" class="s">and subscribers</text>
+
+  <rect x="568" y="552" width="148" height="128" rx="7" fill="#f4f7f8" stroke="#cfd6da"/>
+  <text x="580" y="574" class="h2">application</text>
+  <text x="580" y="597" class="s">robot_data_service</text>
+  <text x="580" y="615" class="s">robot_control_service</text>
+  <text x="580" y="633" class="s">command_generator</text>
+
+  <rect x="726" y="552" width="148" height="128" rx="7" fill="#f4f7f8" stroke="#cfd6da"/>
+  <text x="738" y="574" class="h2">infrastructure</text>
+  <text x="738" y="597" class="s"><tspan class="m">webrtc/</tspan> aiortc</text>
+  <text x="738" y="615" class="s"><tspan class="m">crypto/</tspan> RSA + AES</text>
+  <text x="738" y="633" class="s"><tspan class="m">sensors/</tspan> lidar</text>
+  <text x="738" y="651" class="s"><tspan class="m">ros2/</tspan> publisher</text>
+
+  <rect x="884" y="552" width="148" height="128" rx="7" fill="#f4f7f8" stroke="#cfd6da"/>
+  <text x="896" y="574" class="h2">domain</text>
+  <text x="896" y="597" class="s">entities</text>
+  <text x="896" y="615" class="s">robot commands</text>
+  <text x="896" y="633" class="s">kinematics</text>
+  <text x="896" y="651" class="s">geometry</text>
+
+  <text x="412" y="704" class="d">Message types: <tspan class="m">go2_interfaces</tspan> (Go2State, IMU, WebRtcReq, LowState, and more)</text>
+
+  <!-- Driver <-> Go2 -->
+  <line x1="1074" y1="610" x2="1107" y2="610" class="line" marker-end="url(#arr)" marker-start="url(#arr)"/>
+  <text x="1090" y="596" text-anchor="middle" class="s acc" font-weight="700">lab</text>
+  <text x="1090" y="632" text-anchor="middle" class="s acc" font-weight="700">Wi-Fi</text>
+
+  <!-- Go2 -->
+  <rect x="1110" y="110" width="250" height="625" rx="10" class="box"/>
+  <text x="1130" y="140" class="h">Unitree Go2</text>
+  <text x="1130" y="160" class="d m">172.17.39.82</text>
+  <text x="1130" y="180" class="d">Joins the lab Wi-Fi on boot</text>
+
+  <rect x="1128" y="200" width="214" height="200" rx="8" fill="#fff7ea" stroke="#e0a84a"/>
+  <text x="1142" y="224" class="h2">Port 9991 &#183; handshake</text>
+  <text x="1142" y="252" class="s">1. <tspan class="m">/con_notify</tspan></text>
+  <text x="1158" y="270" class="s">dog sends RSA public key</text>
+  <text x="1142" y="296" class="s">2. driver makes a one-time</text>
+  <text x="1158" y="314" class="s">AES key, sealed with RSA</text>
+  <text x="1142" y="340" class="s">3. WebRTC offer sealed</text>
+  <text x="1158" y="358" class="s">with AES, answer returned</text>
+  <text x="1142" y="384" class="d">See go2_connection.py</text>
+
+  <rect x="1128" y="415" width="214" height="150" rx="8" fill="#e7f2f0" stroke="#2f8f86"/>
+  <text x="1142" y="439" class="h2">WebRTC session</text>
+  <text x="1142" y="465" class="s"><tspan font-weight="700">data channel</tspan></text>
+  <text x="1142" y="483" class="s">state, IMU, joints, lidar,</text>
+  <text x="1142" y="501" class="s">move and sport commands</text>
+  <text x="1142" y="527" class="s"><tspan font-weight="700">video track</tspan></text>
+  <text x="1142" y="545" class="s">front camera</text>
+
+  <text x="1130" y="600" class="d">Accepts one connection.</text>
+  <text x="1130" y="618" class="d">Close the Unitree phone app</text>
+  <text x="1130" y="636" class="d">before starting the console.</text>
+
+  <!-- Host -->
+  <rect x="40" y="760" width="640" height="125" rx="10" class="box"/>
+  <text x="60" y="788" class="h">Host computer (this repo)</text>
+  <text x="60" y="815" class="s"><tspan class="m" font-weight="700">start_console.sh</tspan>   checks the dog and port 9991, starts the container and dashboard</text>
+  <text x="60" y="837" class="s"><tspan class="m" font-weight="700">controller/docker/build.sh</tspan>   builds go2:dev from the Dockerfile</text>
+  <text x="60" y="859" class="s"><tspan class="m">go2_maps/ &#8594; /maps</tspan> (lab map, places)    <tspan class="m">go2_recordings/ &#8594; /recordings</tspan></text>
+
+  <!-- Tech stack -->
+  <rect x="700" y="760" width="660" height="125" rx="10" class="box"/>
+  <text x="720" y="788" class="h">Tech stack</text>
+
+  <rect x="720" y="803" width="104" height="28" rx="14" class="chip"/><text x="772" y="822" text-anchor="middle" class="chipt">Ubuntu 22.04</text>
+  <rect x="832" y="803" width="70" height="28" rx="14" class="chip"/><text x="867" y="822" text-anchor="middle" class="chipt">Docker</text>
+  <rect x="910" y="803" width="112" height="28" rx="14" class="chip"/><text x="966" y="822" text-anchor="middle" class="chipt">ROS 2 Humble</text>
+  <rect x="1030" y="803" width="98" height="28" rx="14" class="chip"/><text x="1079" y="822" text-anchor="middle" class="chipt">Python 3.10</text>
+  <rect x="1136" y="803" width="128" height="28" rx="14" class="chip"/><text x="1200" y="822" text-anchor="middle" class="chipt">aiortc (WebRTC)</text>
+
+  <rect x="720" y="841" width="110" height="28" rx="14" class="chip"/><text x="775" y="860" text-anchor="middle" class="chipt">pycryptodome</text>
+  <rect x="838" y="841" width="84" height="28" rx="14" class="chip"/><text x="880" y="860" text-anchor="middle" class="chipt">wasmtime</text>
+  <rect x="930" y="841" width="140" height="28" rx="14" class="chip"/><text x="1000" y="860" text-anchor="middle" class="chipt">NumPy + OpenCV</text>
+  <rect x="1078" y="841" width="176" height="28" rx="14" class="chip"/><text x="1166" y="860" text-anchor="middle" class="chipt">HTML / JS Canvas + SSE</text>
+</svg>

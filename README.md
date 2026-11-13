@@ -10,6 +10,14 @@ The computer and the dog sit on the same lab Wi-Fi. The dog joins that Wi-Fi by 
   <img src="docs/images/connection.jpg" alt="The Go2 and the laptop share the lab Wi-Fi. Drive from the browser with the keyboard." width="720">
 </p>
 
+## Architecture
+
+<p align="center">
+  <img src="docs/images/architecture.svg" alt="Architecture: the browser drives through go2_dashboard.py; the dashboard and the go2_robot_sdk WebRTC driver share ROS 2 topics inside the go2:dev Docker container; the driver talks to the Go2 over the lab Wi-Fi with an RSA and AES handshake on port 9991." width="100%">
+</p>
+
+The browser sends keyboard moves to `go2_dashboard.py` over HTTP. The dashboard turns them into ROS 2 messages. The driver in `controller/go2_robot_sdk` sends those messages to the dog over an encrypted WebRTC session on the lab Wi-Fi. Sensor data comes back along the same path to the page.
+
 <p align="center">
   <img src="docs/images/lab_map.png" alt="Lidar map of the NESL lab. White is open floor, black is walls and furniture, grey is not yet seen." width="480">
 </p>
