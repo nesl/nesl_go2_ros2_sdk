@@ -1,0 +1,8 @@
+# Python packages the WebRTC driver needs. Versions match the ones known to
+# speak the dog's session format. numpy is intentionally absent: use the
+# numpy that apt installed with ROS Humble.
+aiortc==1.9.0
+aiohttp
+pycryptodome
+requests
+wasmtime

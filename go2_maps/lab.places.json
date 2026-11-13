@@ -1,0 +1,307 @@
+{
+ "sofa": {
+  "id": "sofa",
+  "x": -0.44,
+  "y": 2.326,
+  "yaw_deg": 136.0,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -1.09,
+   "y": 2.95
+  },
+  "preview": "/places/sofa.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:56:06",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:49:21"
+ },
+ "door_outside": {
+  "id": "door_outside",
+  "x": -0.23,
+  "y": -3.42,
+  "yaw_deg": -134.0,
+  "pitch_deg": 0.0,
+  "description": "",
+  "preview": "/places/door_outside.jpg",
+  "map": "lab",
+  "saved_by": "console 89twrzfifdm",
+  "saved_at": "2026-10-19 16:13:02",
+  "marked_on_map": true,
+  "target": {
+   "x": -0.82,
+   "y": -3.99
+  },
+  "moved_by": "console 4r45nd19w9o",
+  "moved_at": "2026-10-26 19:13:44"
+ },
+ "desk_pragya": {
+  "id": "desk_pragya",
+  "x": 0.14,
+  "y": -0.38,
+  "yaw_deg": 179.9,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -0.73,
+   "y": -0.13
+  },
+  "preview": "/places/desk_pragya.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:54:36",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:48"
+ },
+ "desk_gaofeng": {
+  "id": "desk_gaofeng",
+  "x": -0.692,
+  "y": -1.462,
+  "yaw_deg": 167.9,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -1.88,
+   "y": -1.13
+  },
+  "preview": "/places/desk_gaofeng.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:52:22",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:41"
+ },
+ "desk_oliver": {
+  "id": "desk_oliver",
+  "x": 0.36,
+  "y": -0.44,
+  "yaw_deg": -82.9,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 0.47,
+   "y": -1.28
+  },
+  "preview": "/places/desk_oliver.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:52:07",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:39"
+ },
+ "door_stairwell": {
+  "id": "door_stairwell",
+  "x": -5.379,
+  "y": 2.196,
+  "yaw_deg": -134.0,
+  "pitch_deg": 0.0,
+  "description": "labelled from 4 photo(s)",
+  "target": {
+   "x": -5.93,
+   "y": 1.62
+  },
+  "preview": "/places/door_stairwell.jpg",
+  "map": "lab",
+  "saved_by": "console jtynb9wyh09",
+  "saved_at": "2026-10-23 15:04:55",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:48:05"
+ },
+ "podium": {
+  "id": "podium",
+  "x": -2.48,
+  "y": 1.04,
+  "yaw_deg": -154.2,
+  "pitch_deg": 0.0,
+  "description": "labelled from 4 photo(s)",
+  "target": {
+   "x": -3.59,
+   "y": 0.57
+  },
+  "preview": "/places/podium.jpg",
+  "map": "lab",
+  "saved_by": "console jrnd2y5teb9",
+  "saved_at": "2026-10-23 15:14:17",
+  "marked_on_map": true,
+  "note": "shifted with the straightened map (10-23)",
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:55:05"
+ },
+ "desk_joseph": {
+  "id": "desk_joseph",
+  "x": 1.75,
+  "y": 2.85,
+  "yaw_deg": -81.3,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 1.8,
+   "y": 2.22
+  },
+  "preview": "/places/desk_joseph.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:46:56",
+  "marked_on_map": true,
+  "moved_by": "console 4r45nd19w9o",
+  "moved_at": "2026-10-26 19:07:15"
+ },
+ "workbench": {
+  "id": "workbench",
+  "x": 0.35,
+  "y": 3.97,
+  "yaw_deg": 166.5,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -0.78,
+   "y": 4.33
+  },
+  "preview": "/places/workbench.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:46:22",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:55:21"
+ },
+ "conference_table": {
+  "id": "conference_table",
+  "x": -1.068,
+  "y": 1.891,
+  "yaw_deg": 136.0,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -1.72,
+   "y": 2.52
+  },
+  "preview": "/places/conference_table.jpg",
+  "map": "lab",
+  "saved_by": "console 89twrzfifdm",
+  "saved_at": "2026-10-19 16:37:43",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:51:19"
+ },
+ "water_cooler": {
+  "id": "water_cooler",
+  "x": 1.056,
+  "y": -0.299,
+  "yaw_deg": 46.0,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 1.78,
+   "y": 0.46
+  },
+  "preview": "/places/water_cooler.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:50:23",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:48:13"
+ },
+ "desk_yuyang": {
+  "id": "desk_yuyang",
+  "x": 3.84,
+  "y": 1.14,
+  "yaw_deg": -6.2,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 5.57,
+   "y": 1.38
+  },
+  "preview": "/places/desk_yuyang.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:48:52",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:06"
+ },
+ "desk_kang": {
+  "id": "desk_kang",
+  "x": 4.0,
+  "y": 1.89,
+  "yaw_deg": 90.5,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 4.18,
+   "y": 2.23
+  },
+  "preview": "/places/desk_kang.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:48:17",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:53:34"
+ },
+ "desk_liying": {
+  "id": "desk_liying",
+  "x": 2.96,
+  "y": 1.01,
+  "yaw_deg": 56.8,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 2.93,
+   "y": 1.48
+  },
+  "preview": "/places/desk_liying.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:49:59",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:53:55"
+ },
+ "desk_khang": {
+  "id": "desk_khang",
+  "x": 3.24,
+  "y": 0.6,
+  "yaw_deg": -17.6,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": 4.22,
+   "y": 0.38
+  },
+  "preview": "/places/desk_khang.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 16:49:22",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:17"
+ },
+ "desk_brian": {
+  "id": "desk_brian",
+  "x": -0.9,
+  "y": -1.68,
+  "yaw_deg": -65.9,
+  "pitch_deg": 0.0,
+  "description": "",
+  "target": {
+   "x": -0.73,
+   "y": -2.52
+  },
+  "preview": "/places/desk_brian.jpg",
+  "map": "lab",
+  "saved_by": "console rg7hmw0u43",
+  "saved_at": "2026-10-19 17:00:18",
+  "marked_on_map": true,
+  "moved_by": "console dm8t0rkqkw",
+  "moved_at": "2026-10-23 15:54:34"
+ }
+}

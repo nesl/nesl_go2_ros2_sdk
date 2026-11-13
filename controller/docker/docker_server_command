@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "This file is the old personal launch command. Do not use it."
+echo "Build the image with ./controller/docker/build.sh"
+echo "Then, on the lab Wi-Fi, run ./start_console.sh"
+exit 1

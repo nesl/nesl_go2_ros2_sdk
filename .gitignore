@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+go2_recordings/
+go2_maps/history/
+go2_maps/*_trail/
+go2_maps/*.unsaved.npz
+build/
+install/
+log/

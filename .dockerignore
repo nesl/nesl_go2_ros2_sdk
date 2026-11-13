@@ -1,0 +1,5 @@
+.git
+go2_recordings
+go2_maps
+**/__pycache__
+**/*.pyc
